@@ -14,7 +14,8 @@ public class RobotSquare {
  
     	// This code makes a new Robot
     	Robot rob = new Robot();
-
+    	rob.setSpeed(100);
+    	rob.penDown();
         // PEN.  Put the robot's pen down so it can draw, Use this command:
 		 /**     rob.penDown();    **/
 
@@ -25,18 +26,21 @@ public class RobotSquare {
     	//        The start value will be zero because no sides have yet been drawn. Use this code:
 		  /**     int count = 0;    **/
     	
+int count = 0;
 
+	while (count < 4) {
         // DRAW.  Draw a line. Use this command:
     		  /**     rob.move();    **/
-  
+    	rob.move(100);
 
 	// TURN.  Turn 90 degrees. Use this command:
     		  /**     rob.turn();    **/
-
+    	rob.turn(90);
     	
     	// INCREASE COUNT. Add one to the number of sides that have now been drawn like this:
     		  /**     count += 1;    **/
-
+    	count ++;
+	}
     	
     	// Run the program. Did the Robot draw a line and turn?
     	 
