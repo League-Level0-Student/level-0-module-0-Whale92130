@@ -1,15 +1,29 @@
 package _03_print_and_popups._2_madlibs;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class MadlibsOfTheAmazon {
+	public MadlibsOfTheAmazon() {
+		this.setSize(300, 300);
+	}
+	String value;
+	JButton buttonOK = new JButton();
+	  JTextField inputField = new JTextField();
 	
+	  ButtonListener bl = new ButtonListener();
 	public static void main(String[] args) {
 		// Put this sentence in a pop up:
 		String prompt =  "If you find yourself having to cross a piranha-infested river, here's how to do it...";
-		
+		  
 		// Get the player to enter an adjective
-
+		
 		// Get the player to enter a type of liquid
 
 		// Get the player to enter a body part
@@ -36,4 +50,31 @@ public class MadlibsOfTheAmazon {
 		// If you want to write your own Madlib story, just change the story variable and ask the player different questions.
 
 	}
+	public void getAdjective() { 
+		  JPanel panel = new JPanel();
+		  panel.add( new JLabel("adjective"));
+		  panel.add(buttonOK);
+		  panel.add(inputField);
+		  buttonOK.addActionListener(bl);
+		  
+	}
+	
+	public class ButtonListener implements ActionListener
+	 {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+				if (arg0.getSource()== buttonOK){
+					String adj = inputField.getText();
+					value = adj;
+				}
+		}
+		
+		public String getValue() {
+			return value;
+		}
+
+	}
+
+
 }
