@@ -40,10 +40,10 @@ public class DragonFight {
 				// or a kick
 	
 				// 4. If they typed in "yell":
-			if (Q1 == ("yell")) {
+			if (Q1.equals("yell")) {
 				Patck = ran.nextInt(10);
 			}
-			if (Q1 == ("kick")) {
+			if (Q1.equals("kick")) {
 				Patck = ran.nextInt(25);
 			}
 					  // -- Find a random number between 0 and 10 and store it in playerAttack. Use
@@ -54,30 +54,34 @@ public class DragonFight {
 					  // -- Find a random number between 0 and 25 and store it in playerAttack.
 			System.out.println("The Dragon RETALIATES");
 				// 6. Subtract the player attack value from the dragon's health
-			Dhp = Dhp - Patck;
+			Dhp = (Dhp - Patck);
 			// THE DRAGON RETALIATES
 
 				// 7. Find a random number between 0 and 35 and store it in dragonAttack
 			Datck = ran.nextInt(35);
 				// 8. Subtract the dragon attack value from the player's health
-			Php = Php - Datck;
+			Php = (Php - Datck);
 			// ASSESS THE DAMAGE
 			
 				// 9. If the player's health is less than or equal to 0, the game is over,
 				//    call the playerLost() method
-	
+			if (Php < 1) {
+				playerLost();
+			}
 			
 				// 10. If the dragon's health is less than or equal to 0, the game is over,
 				//     call the dragonLost() method
-
+			if (Dhp < 1) {
+				dragonLost();
+			}
 			
 				// 11.  Pop up a message that tells us how much health the player and
 				// 		dragon have left.
-
+			JOptionPane.showMessageDialog(null, "The Dragon has "+Dhp + " health left");
 			
 			// (Bonus: Also display the amount of health that was lost by each in this
 			// round)
-			
+			JOptionPane.showMessageDialog(null, "You have "+Php + " health left");
 
 		} // this is the end of the while loop
 
@@ -85,14 +89,14 @@ public class DragonFight {
 
 	static void playerLost() {
 		// 11. Tell the player that they have been defeated by the dragon and have no treasure
-
+		System.out.println("You have no treasure");
 
 		System.exit(0);   //This code ends the program
 	}
 
 	static void dragonLost() {
 		// 12. Tell the user that the dragon has been defeated and they get a ton of gold!
-
+		System.out.println("you have won and earned a lot of gold");
 		System.exit(0);   //This code ends the program
 	}
 
